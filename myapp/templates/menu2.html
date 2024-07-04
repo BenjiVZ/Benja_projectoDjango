@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Menu */
+        #menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        #catalogo_boton {
+            padding: 12.5px 30px;
+            border: 0;
+            border-radius: 100px;
+            background-color: #2ba8fb;
+            color: #ffffff;
+            font-weight: Bold;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+        }
+
+        #catalogo_boton:hover {
+            background-color: #6fc5ff;
+            box-shadow: 0 0 20px #6fc5ff50;
+            transform: scale(1.1);
+        }
+
+        #catalogo_boton:active {
+            background-color: #3d94cf;
+            transition: all 0.25s;
+            -webkit-transition: all 0.25s;
+            box-shadow: none;
+            transform: scale(0.98);
+        }
+
+
+
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            margin: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            background-image: linear-gradient(to bottom right, #00c6ff, #0072ff);
+            border: none;
+            border-radius: 40px;
+            box-shadow: 0px 4px 0px #0072ff;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 0px #0072ff;
+        }
+
+        .button:active {
+            transform: translateY(0px);
+            box-shadow: none;
+            background-image: linear-gradient(to bottom right, #0072ff, #00c6ff);
+        }
+
+        .button:before,
+        .button:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        .button:before {
+            top: -3px;
+            left: -3px;
+            border-radius: 40px;
+            border-top: 3px solid #fff;
+            border-left: 3px solid #fff;
+        }
+
+        .button:after {
+            bottom: -3px;
+            right: -3px;
+            border-radius: 40px;
+            border-bottom: 3px solid #fff;
+            border-right: 3px solid #fff;
+        }
+
+
+        body {
+            padding-top: 60px;
+        }
+
+
+        #menu_izquierda h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #menu_medio button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #menu_medio button a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #menu_derecha nav {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #menu_derecha nav a {
+            color: #ffffff;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body id="menu2">
+        <!-- Menú para usuarios no autenticados -->
+        {% if user.is_authenticated %}
+
+        <header>
+            <section id="menu">
+                <div id="menu_izquierda">
+                    <h1>ETHEREA COSMETICS</h1>
+                </div>
+
+                <!-- <div id="menu_medio">
+                <button><a href=""></a></button>
+            </div> -->
+
+                <div id="menu_derecha">
+                    <nav>
+                        <button id="catalogo_boton"><a href="{% url 'catalogo' %}">Belleza</a></button><br>
+                        <button id="catalogo_boton"><a href="{% url 'catalogo' %}">Cabello</a></button><br>
+                        <button id="catalogo_boton"><a href="{% url 'catalogo' %}">Cuidado personal</a></button><br>
+                    </nav>
+                </div>
+            </section>
+        </header>
+        <!-- Mostrar elementos adicionales para usuarios autenticados -->
+        {% endif %}
+</body>
+
+</html>

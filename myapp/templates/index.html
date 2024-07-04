@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ETHEREA COSMETICS</title>
+    <!--     <link rel="stylesheet" href="css/styles.css"> -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'js/scrips.js' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #3498DB;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- {% include 'menu1.html' %} --> <!-- Siempre muestra el menú1 -->
+
+    <header>
+        <section id="menu">
+            <div id="menu_izquierda">
+                <h1>ETHEREA COSMETICS</h1>
+            </div>
+
+            <div id="menu_medio">
+                <button class="button"><a href="{% url 'login' %}">Login</a></button>
+                <button class="button"><a href="{% url 'register' %}">Register</a></button>
+            </div>
+
+            <div id="menu_derecha">
+                <nav>
+                    <button id="catalogo_boton"><a href="{% url 'catalogo' %}">Belleza</a></button><br>
+                    <button id="catalogo_boton"><a href="{% url 'catalogo' %}">Cabello</a></button><br>
+                    <button id="catalogo_boton"><a href="{% url 'catalogo' %}">Cuidado personal</a></button><br>
+                </nav>
+            </div>
+        </section>
+    </header>
+
+
+    <main>
+
+        <section id="img">
+            <img src="{% static 'img/jojo.svg'%}" alt="">
+        </section><br>
+
+
+        <section id="categoria">
+            <div id="categoria_text">
+                <h1>EXPLORAR LA BELLEZA</h1>
+                <h3>Encuentra tu estilo</h3>
+                <button id="button">
+                    <a href="{% url 'catalogo' %}">Productos</a>
+                    <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                        <path clip-rule="evenodd"
+                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                </button>
+
+            </div>
+        </section><br>
+
+
+        <section id="Tendencias">
+            <div id="Tendencias_text">
+                <h3>Tendencias</h3>
+                <h1>Promocion</h1>
+            </div>
+            <!-- <article>
+                        <img src="" alt="Crema hidratante" class="img-producto">
+                        <h2>Crema hidratante</h2>
+                    </article>
+                    <article>
+                        <img src="img/ producto (2).jpg" alt="Shampoo anticaída" class="img-producto">
+                        <h2>Shampoo anticaída</h2>
+                    </article>
+                    <article>
+                        <img src="img/ producto (3).jpg" alt="Labial rojo" class="img-producto">
+                        <h2>Labial rojo</h2>
+                    </article> -->
+            <div id="Tendencias_items">
+                <div id="ofertas">
+                    {% for producto in tendencia %}
+                    <article>
+                        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" style="max-width: 200px;">
+                        <h2>{{ producto.nombre }}</h2>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </section><br>
+
+
+        <section id="detacado">
+            <div id="detacado_text">
+                <h3>Productos Destacados</h3>
+                <h1>Popular Ahora Mismo</h1>
+            </div>
+
+            <!-- <div>
+                <div id="destacados_items-1">
+                                        <article>
+                        <img src="img/ producto (4).jpg" alt="Crema hidratante" class="img-producto">
+
+                        <h2>Crema hidratante</h2>
+                    </article>
+                    <article>
+                        <img src="img/ producto (5).jpg" alt="Shampoo anticaída" class="img-producto">
+
+                        <h2>Shampoo anticaída</h2>
+                    </article>
+                    <article>
+                        <img src="img/ producto (6).jpg" alt="Labial rojo" class="img-producto">
+
+                        <h2>Labial rojo</h2>
+                    </article>
+                </div>
+
+                <div id="destacados_items-2">
+                    <article>
+                        <img src="img/ producto (7).jpg" alt="Crema hidratante" class="img-producto">
+
+                        <h2>Crema hidratante</h2>
+                    </article>
+                    <article>
+                        <img src="img/ producto (8).jpg" alt="Shampoo anticaída" class="img-producto">
+
+                        <h2>Shampoo anticaída</h2>
+                    </article>
+                    <article>
+                        <img src="img/ producto (1).jpg" alt="Labial rojo" class="img-producto">
+                        <h2>Labial rojo</h2>
+                    </article>
+
+                    
+
+                </div>
+            </div> -->
+            <div id="Tendencias_items">
+                <div id="ofertas">
+                    {% for producto in populares %}
+                    <article>
+                        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" style="max-width: 200px;">
+                        <h2>{{ producto.nombre }}</h2>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+    </main><br>
+
+
+    <aside>
+        <section id="informacion">
+            <div id="informacion_imgFONDO" style="background-color: rgba(19, 18, 18, 0.671);">
+                <p>New arrivals</p>
+                <h1>Nueva colección de productos de belleza</h1>
+                <p>Descubre nuestra nueva colección de productos de belleza, todos ellos diseñados para realzar tu
+                    belleza
+                    natural.</p>
+            </div><br>
+
+            <div id="informacion_text">
+                <div id="informacion_center">
+                    <p>Compra a tu manera</p>
+                    <h1>¿Por qué elegirnos?</h1>
+                </div>
+
+                <div id="informacion_container">
+                    <div class="article">
+                        <img src="../static/img/icon/almuerzo-cohete.svg" alt="" id="icon">
+
+                        <h2>Free shipping.</h2>
+                        <p>Disfruta de envío gratis en todos los pedidos, sin importar el tamaño o la ubicación.</p>
+                    </div>
+                    <div class="article">
+                        <img src="../static/img/icon/tablero.svg" id="icon">
+
+                        <h2>Devoluciones Sencillas</h2>
+                        <p>Nuestro proceso de devolución es fácil y sin estrés. Si no estás satisfecho con tu compra,
+                            simplemente contáctanos y arreglaremos el proceso de devolución.</p>
+                    </div>
+                    <div class="article">
+                        <img src="../static/img/icon/blindaje.svg" alt="" id="icon">
+
+                        <h2>Productos de Calidad</h2>
+                        <p>Nos aseguramos de que todos nuestros productos sean de la más alta calidad y estén diseñados
+                            para
+                            realzar tu belleza natural.</p>
+                    </div>
+                    <div class="article">
+                        <img src="../static/img/icon/porcentaje-de-beneficio.svg" alt="" id="icon">
+
+                        <h2>Seguridad en el Pago</h2>
+                        <p>Tu información personal está protegida en todo momento, asegurando un proceso de transacción
+                            seguro y sin problemas. Tu seguridad es nuestra prioridad.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </aside><br>
+
+
+    <footer>
+        <div id="footer_izquierda">
+            <h2>ETHEREA COSMETICS</h2>
+            <div id="footer_icon">
+                <ul class="wrapper">
+                    <li class="icon facebook">
+                        <span><i class="fab fa-facebook-f"></i></span>
+                    </li>
+                    <li class="icon tiktok">
+                        <span><i class="fab fa-tiktok"></i></span>
+                    </li>
+                    <li class="icon instagram">
+                        <span><i class="fab fa-instagram"></i></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer_derecha">
+            <div id="footer_izquierda1">
+                <h3>Categories</h3>
+                <ul>
+                    <li>Belleza</li>
+                    <li>Cabello</li>
+                    <li>Cuidado personal</li>
+                </ul>
+            </div>
+            <!--<div id="footer_derecha2">
+                <h3>Recources</h3>
+                <ul>
+                    <li><a href=""></a>Contact</li>
+                    <li><a href=""></a>Ayuda</li>
+                </ul>
+            </div> -->
+        </div>
+    </footer>
+
+</body>
+
+</html>

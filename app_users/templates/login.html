@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETHEREA COSMETICS</title>
+    <!--     <link rel="stylesheet" href="../css/login-styles.css"> -->
+    <link rel="stylesheet" href="{% static 'css/login-styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <section id="menu">
+            <div id="menu_izquierda">
+                <h1>ETHEREA COSMETICS</h1>
+            </div>
+
+            <div id="menu_derecha">
+                <nav>
+                    <button class="button"><a href="{% url 'page' %}">Salir</a></button>
+                </nav>
+            </div>
+        </section>
+
+    </header>
+    <main>
+        <div class="login">
+            <div class="login-screen">
+                <div class="app-title">
+                    <h1>Bienvenido</h1>
+                </div>
+
+                <div class="login-form">
+                    <!-- <div class="control-group">
+                        <input type="text" class="login-field" value="" placeholder="username" id="login-name">
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+
+                    <div class="control-group">
+                        <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
+                        <label class="login-field-icon fui-lock" for="login-pass"></label>
+                    </div>
+
+                    <a class="btn btn-primary btn-large btn-block" href="#">Login</a>
+                </div> -->
+                    <form method="post">
+                        {% csrf_token %}
+                        <label for="username">Usuario:</label>
+                        <input type="text" id="username" name="username">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password">
+                        <button type="submit" class="btn btn-primary btn-large btn-block">login</button>
+                        {% if error %}
+                        <p>{{ error }}</p>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+    </main>
+
+</body>
+
+</html>

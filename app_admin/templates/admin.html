@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/admin-styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETHEREA COSMETICS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            body {
+                background-color: #4EA580;
+            }
+        </style>
+</head>
+
+<body>
+
+    <header>
+
+        <section id="menu">
+            <div id="menu_izquierda">
+                <h1>ETHEREA COSMETICS</h1>
+            </div>
+
+            <div id="menu_derecha">
+                <nav>
+                    <a href="{% url 'page' %}">salir</a>
+                </nav>
+            </div>
+        </section>
+
+    </header>
+
+    <main>
+    </main>
+
+    <footer>
+        <div id="footer_izquierda">
+            <h2>ETHEREA COSMETICS</h2>
+            <div id="footer_icon">
+                <ul class="wrapper">
+                    <li class="icon facebook">
+                        <span><i class="fab fa-facebook-f"></i></span>
+                    </li>
+                    <li class="icon tiktok">
+                        <span><i class="fab fa-tiktok"></i></span>
+                    </li>
+                    <li class="icon instagram">
+                        <span><i class="fab fa-instagram"></i></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer_derecha">
+            <div id="footer_izquierda1">
+                <h3>Categories</h3>
+                <ul>
+                    <li>Belleza</li>
+                    <li>Cabello</li>
+                    <li>Cuidado personal</li>
+                </ul>
+            </div>
+            <!--             <div id="footer_derecha2">
+                <h3>Recources</h3>
+                <ul>
+                    <li><a href=""></a>Contact</li>
+                    <li><a href=""></a>Ayuda</li>
+                </ul>
+            </div> -->
+        </div>
+    </footer>
+</body>
+
+</html>

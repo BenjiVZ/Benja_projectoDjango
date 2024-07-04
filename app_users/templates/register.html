@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - ETHEREA COSMETICS</title>
+    <!-- <link rel="stylesheet" href="../css/register-styles.css"> -->
+    <link rel="stylesheet" href="{% static 'css/register-styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section id="menu">
+            <div id="menu_izquierda">
+                <h1>ETHEREA COSMETICS</h1>
+            </div>
+            <div id="menu_derecha">
+                <nav>
+                    <button class="button"><a href="{% url 'page' %}">Salir</a></button>
+                </nav>
+            </div>
+        </section>
+    </header>
+    <main>
+        <div class="login">
+            <div class="login-screen">
+                <div class="app-title">
+                    <h1>Bienvenido</h1>
+                </div>
+                <div class="login-form">
+                {%block content%}
+
+<!--                     <form action="/registro" method="POST">
+                        <div class="control-group">
+                            <input type="text" class="login-field" name="register-name" value=""
+                                placeholder="nombre de usuario" id="register-name" required>
+                            <label class="login-field-icon fui-user" for="register-name"></label>
+                        </div>
+
+                        <div class="control-group">
+                            <input type="email" class="login-field" name="register-email" value=""
+                                placeholder="correo electrónico" id="register-email" required>
+                            <label class="login-field-icon fui-mail" for="register-email"></label>
+                        </div>
+
+                        <div class="control-group">
+                            <input type="password" class="login-field" name="register-pass" value=""
+                                placeholder="contraseña" id="register-pass" required>
+                            <label class="login-field-icon fui-lock" for="register-pass"></label>
+                        </div>
+
+                        <div class="control-group">
+                            <input type="password" class="login-field" name="register-pass-confirm" value=""
+                                placeholder="confirmar contraseña" id="register-pass-confirm" required>
+                            <label class="login-field-icon fui-lock" for="register-pass-confirm"></label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-block">Registrar</button>
+                    </form> -->
+
+                    <form method="post">
+                        {% csrf_token %}  
+                        {{ form.as_p }}  
+                        <button type="submit" class="btn btn-primary btn-large btn-block">Registrar</button>
+                    </form>
+                    {%endblock%}
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

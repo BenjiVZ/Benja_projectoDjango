@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ETHEREA COSMETICS</title>
+    <!--     <link rel="stylesheet" href="css/styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #detacado {
+            text-align: center;
+        }
+
+        #detacado_text {
+            display: block;
+        }
+
+        #destacados_items-1,
+        #destacados_items-2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        body {
+
+            background-color: #3498DB;
+        }
+
+        article {
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.897);
+            backdrop-filter: blur(5px);
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: calc(10% - 20px);
+        }
+
+
+        article img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+
+        @media (min-width: 768px) {
+
+            .article {
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .article img {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .article {
+                width: 100%;
+                display: block;
+            }
+
+            .article img {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        .article {
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .article p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="detacado_text">
+        <h3>Productos Destacados</h3>
+        <h1>Popular Ahora Mismo</h1>
+    </div>
+
+    <div>
+        <div id="destacados_items-1">
+            <!--                     <article>
+                    <img src="img/ producto (4).jpg" alt="Crema hidratante" class="img-producto">
+    
+                    <h2>Crema hidratante</h2>
+                </article>
+                <article>
+                    <img src="img/ producto (5).jpg" alt="Shampoo anticaída" class="img-producto">
+    
+                    <h2>Shampoo anticaída</h2>
+                </article>
+                <article>
+                    <img src="img/ producto (6).jpg" alt="Labial rojo" class="img-producto">
+    
+                    <h2>Labial rojo</h2>
+                </article>
+            </div>
+    
+            <div id="destacados_items-2">
+                <article>
+                    <img src="img/ producto (7).jpg" alt="Crema hidratante" class="img-producto">
+    
+                    <h2>Crema hidratante</h2>
+                </article>
+                <article>
+                    <img src="img/ producto (8).jpg" alt="Shampoo anticaída" class="img-producto">
+    
+                    <h2>Shampoo anticaída</h2>
+                </article>
+                <article>
+                    <img src="img/ producto (1).jpg" alt="Labial rojo" class="img-producto">
+                    <h2>Labial rojo</h2>
+                </article> -->
+
+            {% for p in productos %}
+            <article>
+                <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" style="max-width: 200px;">
+                <h2>{{ p.nombre }}</h2>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
